@@ -24,9 +24,7 @@ jobs:
           mkdir -p artifacts/upload_reports/HIRS_AttestationCA
           mkdir -p artifacts/upload_reports/HIRS_AttestationCAPortal
           mkdir -p artifacts/upload_reports/HIRS_Provisioner
-          mkdir -p artifacts/upload_reports/HIRS_ProvisionerTPM2
           mkdir -p artifacts/upload_reports/HIRS_Utils
-          mkdir -p artifacts/upload_reports/tcg_rim_tool
           mkdir -p artifacts/upload_reports/tcg_eventlog_tool
       # Run the provisioner and ACA unit tests via gradle build in a Rocky Docker container
       - name: Build HIRS and run unit tests

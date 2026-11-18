@@ -58,7 +58,7 @@ jobs:
           cp HIRS_Utils/build/libs/*.jar artifacts/jars/.
           cp tools/tcg_eventlog_tool/build/libs/*.jar artifacts/jars/.
           cp tools/tcg_eventlog_tool/build/distributions/*.zip artifacts/win
-          cp package/win/tcg-rim-tool/* artifacts/win/hirstools
+          cp package/win/hirstools/* artifacts/win/hirstools
       - name: Archive RPM files
         uses: actions/upload-artifact@v7
         with:

@@ -100,7 +100,7 @@ The ACA provides a Provisioner application to be installed on all devices which 
 
 ## Installation Instructions
 
-NOTE: The HIRS ACA, tcg_rim_tool, and tcg_eventLog_tool require Java 25 jre be installed before attempting to install these
+NOTE: The HIRS ACA and tcg_eventLog_tool require Java 25 jre be installed before attempting to install these
 packages.
 For detailed instructions, see [Installation notes](https://nsacyber.github.io/HIRS/install/).
 
