@@ -60,6 +60,21 @@ public final class CoseAlgorithm {
     public static final int COSE_SHA_256 = -16;
 
     /**
+     * IANA Registered COSE Algorithm: ML-DSA-44 (FIPS 204), RFC 9964.
+     */
+    public static final int COSE_ML_DSA_44 = -48;
+
+    /**
+     * IANA Registered COSE Algorithm: ML-DSA-65 (FIPS 204), RFC 9964.
+     */
+    public static final int COSE_ML_DSA_65 = -49;
+
+    /**
+     * IANA Registered COSE Algorithm: ML-DSA-87 (FIPS 204), RFC 9964.
+     */
+    public static final int COSE_ML_DSA_87 = -50;
+
+    /**
      * IANA Registered COSE Algorithm Name.
      */
     public static final String RSA_SHA512_PKCS1 = "RS512";
@@ -109,6 +124,21 @@ public final class CoseAlgorithm {
      */
     public static final String SHA256 = "SHA-256";
 
+    /**
+     * IANA Registered COSE Algorithm Name.
+     */
+    public static final String ML_DSA_44 = "ML-DSA-44";
+
+    /**
+     * IANA Registered COSE Algorithm Name.
+     */
+    public static final String ML_DSA_65 = "ML-DSA-65";
+
+    /**
+     * IANA Registered COSE Algorithm Name.
+     */
+    public static final String ML_DSA_87 = "ML-DSA-87";
+
     private static final String[][] ALG_NAMES = {
             {"-259", "RS512"},     // RSASSA-PKCS1-v1_5 using SHA-512
             {"-258", "RS384"},     // RSASSA-PKCS1-v1_5 using SHA-384
@@ -118,6 +148,9 @@ public final class CoseAlgorithm {
             {"-37", "PS256"},      // RSASSA-PSS w/ SHA-256
             {"-36", "ES512"},      // ECDSA w/ SHA-512
             {"-35", "ES384"},      // ECDSA w/ SHA-384
+            {"-50", "ML-DSA-87"},  // ML-DSA (FIPS 204) parameter set 87
+            {"-49", "ML-DSA-65"},  // ML-DSA (FIPS 204) parameter set 65
+            {"-48", "ML-DSA-44"},  // ML-DSA (FIPS 204) parameter set 44
             {"-16", "SHA-256"},     // SHA-2 256-bit Hash
             {"-7", "ES256"}        // ECDSA w/ SHA-256
     };
@@ -222,5 +255,29 @@ public final class CoseAlgorithm {
         return (coseAlgorithmName.compareToIgnoreCase(CoseAlgorithm.RSA_SHA256_PSS) == 0)
                 || (coseAlgorithmName.compareToIgnoreCase(CoseAlgorithm.RSA_SHA384_PSS) == 0)
                 || (coseAlgorithmName.compareToIgnoreCase(CoseAlgorithm.RSA_SHA512_PSS) == 0);
+    }
+
+    /**
+     * Returns true if the specified COSE algorithm identifier is an ML-DSA (FIPS 204) parameter set.
+     *
+     * @param cosAlId IANA registered COSE Algorithm Value (ID)
+     * @return true if algorithm is an ML-DSA variant
+     */
+    public static boolean isMlDsa(final int cosAlId) {
+        return cosAlId == CoseAlgorithm.COSE_ML_DSA_44
+                || cosAlId == CoseAlgorithm.COSE_ML_DSA_65
+                || cosAlId == CoseAlgorithm.COSE_ML_DSA_87;
+    }
+
+    /**
+     * Returns true if the specified COSE algorithm name is an ML-DSA (FIPS 204) parameter set.
+     *
+     * @param coseAlgorithmName a IANA Registered COSE algorithm name
+     * @return true if algorithm is an ML-DSA variant
+     */
+    public static boolean isMlDsaName(final String coseAlgorithmName) {
+        return (coseAlgorithmName.compareToIgnoreCase(CoseAlgorithm.ML_DSA_44) == 0)
+                || (coseAlgorithmName.compareToIgnoreCase(CoseAlgorithm.ML_DSA_65) == 0)
+                || (coseAlgorithmName.compareToIgnoreCase(CoseAlgorithm.ML_DSA_87) == 0);
     }
 }
